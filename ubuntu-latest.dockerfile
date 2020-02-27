@@ -1,7 +1,6 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV LANG en_US.utf8
 
 # apt-utils seems missing and warnings are shown, so we install it.
 RUN apt-get update -q -q && \
@@ -13,3 +12,5 @@ RUN apt-get update -q -q && \
  apt-get upgrade --yes --force-yes && \
  rm -f /etc/cron.weekly/fstrim && \
  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* ~/.cache ~/.npm
+
+ENV LANG en_US.utf8
